@@ -102,6 +102,11 @@ h2{
 /* ══ PAIN ══ */
 .pain{background:var(--paper);color:var(--ink)}
 .pain .big{font-family:'Rubik';font-size:clamp(1.5rem,3vw,2.05rem);font-weight:700;color:var(--ink);line-height:1.3;letter-spacing:-.03em;max-width:20ch}
+/* Dark shades, not the bright ones: this sits on the white sheet, where
+   mid-tone green and red fall under WCAG AA. font-weight is restated on
+   .bad because the .pain .big em rule below thins it to 300. */
+.pain .big .ok{color:#15803D}                    /* message sent   */
+.pain .big .bad{color:#B91C1C;font-weight:700}   /* nobody saw it  */
 .pain .big em{font-style:normal;font-weight:300;color:var(--ink-2)}
 .pain ul{list-style:none;margin-top:42px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hair)}
 .pain li{background:var(--paper);padding:24px 26px;font-size:.92rem;color:var(--ink-2)}
@@ -360,7 +365,7 @@ h2{
 
 <!-- ═══ PAIN ═══ -->
 <section class="pain">
-  <p class="big">המסר יצא מההנהלה&#160;👍<br><em>הוא פשוט לא הגיע לאף אחד&#160;👎</em></p>
+  <p class="big"><span class="ok">המסר יצא מההנהלה&#160;👍</span><br><em class="bad">הוא פשוט לא הגיע לאף אחד&#160;👎</em></p>
   <ul>
     <li><b>מצגת</b>שנשלחה להעובדים ונפתחה על ידי מעטים</li>
     <li><b>7 שניות</b>הזמן הממוצע שעובד צופה בתוכן פנימי ממוצע</li>
@@ -424,7 +429,7 @@ h2{
 
 <!-- ═══ CHARS ═══ -->
 <section class="chars-sec">
-  <h2>כשהמותג שלכם צריך פנים משלו.</h2>
+  <h2>כשהמותג שלכם צריך פנים משלו</h2>
   <p>
     לצד ההפקה עם אנשים אמיתיים, אנחנו בונים דמויות מותג דיגיטליות. כל אחת מתרגמת יכולת ליבה
     של הארגון לשפה אנושית ונגישה. הדוגמה הבאה נבנתה עבור אלביט מערכות.
