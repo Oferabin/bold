@@ -71,6 +71,9 @@ h2{
 }
 .mark{font-family:'Rubik';font-size:1.5rem;font-weight:900;letter-spacing:.2em;color:var(--white)}
 .mark span{color:var(--purple)}
+/* inline BOLD wordmark inside body copy */
+.brand{font-family:Rubik;font-weight:900;letter-spacing:.08em;color:var(--white)}
+.brand span{color:var(--purple)}
 .hero h1{
   font-size:clamp(2rem,4.5vw,3.35rem);font-weight:900;color:var(--white);
   line-height:1.1;letter-spacing:-.045em;
@@ -291,6 +294,8 @@ h2{
   /* dark sections inherit black from <body>; on paper body flips white, so
      any white type sitting straight on the page must be re-inked. */
   h2,.stars .lead,.pain .big{color:var(--ink)}
+  .brand{color:var(--ink)}
+  .brand span{color:#7E22CE}
   p,.note,.equation{color:#3C3C45}
   .equation{background:#F4F4F5;border-color:#DDD;border-inline-start-color:var(--purple)}
   .equation b{color:var(--ink)}
@@ -431,8 +436,9 @@ h2{
 <section class="chars-sec">
   <h2>כשהמותג שלכם צריך פנים משלו</h2>
   <p>
-    לצד ההפקה עם אנשים אמיתיים, אנחנו בונים דמויות מותג דיגיטליות. כל אחת מתרגמת יכולת ליבה
-    של הארגון לשפה אנושית ונגישה. הדוגמה הבאה נבנתה עבור אלביט מערכות.
+    לצד ההפקה עם אנשים אמיתיים, <b class="brand">B<span>O</span>LD</b> בונה דמויות מותג דיגיטליות. כל אחת מתרגמת יכולת ליבה
+    של הארגון לשפה אנושית ונגישה.<br>
+    הדוגמה הבאה נבנתה עבור אלביט מערכות.
   </p>
   <div class="chars">
     <div class="char">
