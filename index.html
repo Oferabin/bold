@@ -223,16 +223,6 @@ h2{
 }
 .btn:hover{transform:translateY(-2px);box-shadow:0 10px 36px -8px var(--purple)}
 .btn:active{transform:translateY(0) scale(.98)}
-.btn{border:0;cursor:pointer;font-family:'Rubik'}   /* it is a <button> now, not an <a> */
-/* the fallback choices, revealed on click */
-.ways{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:16px}
-.ways a,.ways button{
-  font-family:'Heebo';font-size:.9rem;font-weight:500;cursor:pointer;
-  color:var(--ink);background:transparent;text-decoration:none;
-  border:1px solid var(--hair);border-radius:999px;padding:9px 20px;transition:.2s;
-}
-.ways a:hover,.ways button:hover{border-color:var(--purple);color:var(--purple)}
-.ways [hidden]{display:none}
 .contact{margin-top:36px;padding-top:26px;border-top:1px solid var(--hair);display:flex;justify-content:center;gap:12px 30px;flex-wrap:wrap}
 .contact a,.contact .nm{color:var(--ink);text-decoration:none;font-size:.93rem;direction:ltr}
 .contact .nm{font-weight:500;direction:rtl}
@@ -332,7 +322,7 @@ h2{
   .cell{padding:5mm}.cell p{font-size:8pt}.c1{min-height:36mm}
   .punch{padding:6mm}
   /* video + character board are screen-only; paper gets a pointer instead */
-  .grid,.chars,.lb,.more,.btn,.ways{display:none !important}
+  .grid,.chars,.lb,.more,.btn{display:none !important}
   .work,.chars-sec{break-inside:avoid}
   .work::after{
     content:"עשרות הפקות פנים־ארגוניות פתוחות לצפייה: boldproduction.net";
@@ -470,18 +460,9 @@ h2{
   <div class="eyebrow">הצעד הבא</div>
   <h2>נשמח לשמוע מכם עליכם&#8230;</h2>
   <p>פגישת היכרות של 30 דקות, ללא עלות, (אבל עם כוס קפה!) שבה נבין את המסר, את הקהל הפנימי, נתאם ציפיות ונרגיש את החיבור בינינו</p>
-  <!-- A bare mailto silently does nothing when the machine has no registered
-       mail handler (e.g. Gmail in a browser), which loses the lead with no
-       feedback. So the button opens a choice instead: a webmail compose that
-       works in any browser, the OS mail app, or copy the address. -->
-  <div class="mailbox">
-    <button class="btn" id="mailBtn" type="button" aria-expanded="false" aria-controls="mailWays">מייל לתיאום פגישה</button>
-    <div class="ways" id="mailWays" hidden>
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=oferabin%40gmail.com&su=%D7%A4%D7%92%D7%99%D7%A9%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA%20%7C%20BOLD&body=%D7%94%D7%99%D7%99%20%D7%A2%D7%95%D7%A4%D7%A8%2C%0A%0A%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%9E%D7%A1%D7%9E%D7%9A%20%D7%94%D7%99%D7%9B%D7%95%D7%9C%D7%95%D7%AA%20%D7%A9%D7%9C%20BOLD%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A4%D7%92%D7%99%D7%A9%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA.%0A%0A%D7%A9%D7%9D%3A%0A%D7%90%D7%A8%D7%92%D7%95%D7%9F%3A%0A%D7%98%D7%9C%D7%A4%D7%95%D7%9F%3A%0A" target="_blank" rel="noopener">Gmail</a>
-      <a href="mailto:oferabin@gmail.com?subject=%D7%A4%D7%92%D7%99%D7%A9%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA%20%7C%20BOLD&body=%D7%94%D7%99%D7%99%20%D7%A2%D7%95%D7%A4%D7%A8%2C%0A%0A%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%9E%D7%A1%D7%9E%D7%9A%20%D7%94%D7%99%D7%9B%D7%95%D7%9C%D7%95%D7%AA%20%D7%A9%D7%9C%20BOLD%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A4%D7%92%D7%99%D7%A9%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA.%0A%0A%D7%A9%D7%9D%3A%0A%D7%90%D7%A8%D7%92%D7%95%D7%9F%3A%0A%D7%98%D7%9C%D7%A4%D7%95%D7%9F%3A%0A">אפליקציית המייל שלי</a>
-      <button type="button" id="copyMail" data-mail="oferabin@gmail.com">העתקת הכתובת</button>
-    </div>
-  </div>
+  <!-- subject and body are percent-encoded: raw Hebrew in a mailto query is
+       not valid URL syntax and some clients drop it. -->
+  <a class="btn" href="mailto:oferabin@gmail.com?subject=%D7%A4%D7%92%D7%99%D7%A9%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA%20%7C%20BOLD&body=%D7%94%D7%99%D7%99%20%D7%A2%D7%95%D7%A4%D7%A8%2C%0A%0A%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%9E%D7%A1%D7%9E%D7%9A%20%D7%94%D7%99%D7%9B%D7%95%D7%9C%D7%95%D7%AA%20%D7%A9%D7%9C%20BOLD%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A4%D7%92%D7%99%D7%A9%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA.%0A%0A%D7%A9%D7%9D%3A%0A%D7%90%D7%A8%D7%92%D7%95%D7%9F%3A%0A%D7%98%D7%9C%D7%A4%D7%95%D7%9F%3A%0A">מייל לתיאום פגישה</a>
   <div class="contact">
     <span class="nm">עופר רבין</span>
     <a href="tel:0546474441">054-6474441</a>
@@ -553,31 +534,6 @@ document.getElementById('x').addEventListener('click',close);
 lb.addEventListener('click',e=>{if(e.target===lb)close();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('on'))close();});
 
-/* ── contact: reveal the mail options ── */
-const mailBtn=document.getElementById('mailBtn'),ways=document.getElementById('mailWays');
-mailBtn.addEventListener('click',()=>{
-  const open=ways.hidden;
-  ways.hidden=!open;
-  mailBtn.setAttribute('aria-expanded',String(open));
-});
-/* copy: the async Clipboard API needs a secure context, so opening the page
-   from disk would throw. Fall back to a throwaway textarea + execCommand. */
-const copyBtn=document.getElementById('copyMail');
-copyBtn.addEventListener('click',async()=>{
-  const mail=copyBtn.dataset.mail, label=copyBtn.textContent;
-  let ok=false;
-  try{ await navigator.clipboard.writeText(mail); ok=true; }
-  catch(e){
-    const t=document.createElement('textarea');
-    t.value=mail; t.setAttribute('readonly','');
-    t.style.cssText='position:fixed;top:-1000px';
-    document.body.appendChild(t); t.select();
-    try{ ok=document.execCommand('copy'); }catch(_){}
-    document.body.removeChild(t);
-  }
-  copyBtn.textContent = ok ? 'הועתק ✓' : mail;
-  setTimeout(()=>{copyBtn.textContent=label;},2200);
-});
 </script>
 </body>
 </html>
